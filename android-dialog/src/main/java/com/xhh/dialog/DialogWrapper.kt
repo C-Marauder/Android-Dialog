@@ -1,9 +1,12 @@
 package com.xhh.dialog
 
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.GradientDrawable
 import android.view.View
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatDialogFragment
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment.STYLE_NO_TITLE
 import com.xhhandroid.dialog.R
 
@@ -50,10 +53,15 @@ internal class DialogWrapper private constructor(
 
                 when (builder.style) {
                     AndroidDialog.FULL_SCREEN -> {
-                        builder.anim?.let {
-                            win.setWindowAnimations(it)
+                        if (builder.anim == null){
+                            win.setWindowAnimations(R.style.FullScreenDialogAnim)
+
+                        }else{
+                            win.setWindowAnimations(builder.anim!!)
                         }
-                        win.setLayout(-1, -1)
+
+                        win.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(dialogFragment.context!!,android.R.color.background_light)))
+                        win.setLayout(-1,-1)
                     }
                     AndroidDialog.BOTTOM_SHEET -> {
                         win.setWindowAnimations(R.style.Animation_Design_BottomSheetDialog)

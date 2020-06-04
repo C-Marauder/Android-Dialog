@@ -4,4 +4,8 @@
         <item name="android:windowEnterAnimation">@anim/dialog_in</item>
         <item name="android:windowExitAnimation">@anim/dialog_out</item>
     </style>
+    <style name="FullScreenDialogAnim" parent="android:Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/dialog_full_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_full_out</item>
+    </style>
 </resources>

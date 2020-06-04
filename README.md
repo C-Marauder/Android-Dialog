@@ -28,8 +28,6 @@ AndroidDialog.builder(R.layout.dialog_confirm){
 
 ![image](https://github.com/xqy666666/Android-Dialog/blob/master/dialog.gif)
 
-
-
 * 底部弹窗
 
 ```kotlin
@@ -41,4 +39,16 @@ AndroidDialog.builder(R.layout.dialog_bottom,
                 
             }.alert(supportFragmentManager,"")
 ```
+
+![bottom_dialog](https://github.com/xqy666666/Android-Dialog/blob/master/dialog_bottom.gif)
+
+* 全屏弹窗
+
+```kotlin
+ AndroidDialog.builder(R.layout.dialog_full_screen,
+ 												AndroidDialog.FULL_SCREEN){
+            }.alert(supportFragmentManager,"")
+```
+
+![full_dialog](https://github.com/xqy666666/Android-Dialog/blob/master/dialog_full_screen.gif)
 

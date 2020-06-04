@@ -17,13 +17,9 @@ class MainActivity : AppCompatActivity() {
 //                    floatArrayOf(24f,24f,24f,24f,24f,24f,24f,24f)
 //                }
 //            }.alert(supportFragmentManager,"")
-            AndroidDialog.builder(R.layout.dialog_bottom,AndroidDialog.BOTTOM_SHEET){
-                setCornerRadius {
-                    floatArrayOf(24f,24f,24f,24f,0f,0f,0f,0f)
-                }
-                onDismiss {
-                    Log.e("==","===>>")
-                }
+            AndroidDialog.builder(R.layout.dialog_full_screen,AndroidDialog.FULL_SCREEN){
+
+
                // setSize(-1,300)
             }.alert(supportFragmentManager,"")
         }
