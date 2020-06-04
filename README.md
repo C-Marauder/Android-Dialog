@@ -41,8 +41,7 @@ AndroidDialog.builder(R.layout.dialog_bottom,
 * 全屏弹窗
 
 ```kotlin
- AndroidDialog.builder(R.layout.dialog_full_screen,
- 												AndroidDialog.FULL_SCREEN){
+ AndroidDialog.builder(R.layout.dialog_full_screen,									AndroidDialog.FULL_SCREEN){
             }.alert(supportFragmentManager,"")
 ```
 
