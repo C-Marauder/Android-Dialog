@@ -3,8 +3,11 @@ package com.xhh.dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.GradientDrawable
+import android.util.Log
+import android.view.KeyEvent
 import android.view.View
 import android.view.WindowManager
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment.STYLE_NO_TITLE
@@ -37,6 +40,16 @@ internal class DialogWrapper private constructor(
             }
             end(gradientDrawable)
 
+        }
+    }
+
+    fun interruptOnBackPressed(interrupted:()->Boolean){
+        dialogFragment.dialog?.setOnKeyListener { _, keyCode, _ ->
+            if (keyCode == KeyEvent.KEYCODE_BACK){
+                interrupted()
+            }else{
+                false
+            }
         }
     }
 

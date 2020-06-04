@@ -1,5 +1,6 @@
 package com.xhh.dialog
 
+import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,10 +18,13 @@ internal class BottomDialog(private val builder: AndroidDialog.Builder): BottomS
         }
     }
     private var onHandle:((view:View)->Unit)?=null
+    private var onBackPressed:(()->Boolean)?=null
     private lateinit var dialogWrapper: DialogWrapper
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
         dialogWrapper = DialogWrapper.getInstance(this)
+
+
     }
 
     override fun onCreateView(
@@ -36,6 +40,15 @@ internal class BottomDialog(private val builder: AndroidDialog.Builder): BottomS
         this.onHandle?.invoke(view)
     }
 
+
+    override val isAlerting: Boolean
+        get() = isResumed
+
+    override fun observeOnBackPressed(interrupted: () -> Boolean):AndroidDialog {
+        this.onBackPressed = interrupted
+        return this
+    }
+
     override fun onHandle(handle: (view:View) -> Unit): AndroidDialog {
         this.onHandle = handle
         return this
@@ -44,6 +57,9 @@ internal class BottomDialog(private val builder: AndroidDialog.Builder): BottomS
     override fun onStart() {
         super.onStart()
         dialogWrapper.init(builder)
+        onBackPressed?.let {
+            dialogWrapper.interruptOnBackPressed(it)
+        }
     }
 
     override fun onDismiss(dialog: DialogInterface) {

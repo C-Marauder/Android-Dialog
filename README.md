@@ -115,3 +115,27 @@ AndroidDialog.builder(R.layout.dialog_confirm){
 
             }.alert(supportFragmentManager, "")
 ```
+
+* 拦截物理返回键
+
+  > 调用observeOnBackPressed方法可以拦截Dialog的物理返回键。true拦截，false不拦截
+
+```kotlin
+val dialog = AndroidDialog.builder(
+                R.layout.dialog_full_screen,
+                AndroidDialog.FULL_SCREEN
+            ) {
+                setCanceledOnTouchOutside(false)
+
+                // setSize(-1,300)
+            }.observeOnBackPressed {
+                Toast.makeText(this,
+                               "拦截物理返回键",
+                               Toast.LENGTH_LONG)
+  														.show()
+                true
+            }
+            dialog.alert(supportFragmentManager, "")
+```
+
+![interrupted](https://github.com/xqy666666/Android-Dialog/blob/master/interrupted.gif)

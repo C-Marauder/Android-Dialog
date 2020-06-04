@@ -13,6 +13,8 @@ interface AndroidDialog{
 
         fun builder(@LayoutRes layoutId: Int,dialogType:Int?=null,init: Builder.()->Unit)= Builder(layoutId,dialogType).apply(init).build()
     }
+    val isAlerting:Boolean
+    fun observeOnBackPressed(interrupted:()->Boolean):AndroidDialog
     fun onHandle(handle:View.()->Unit):AndroidDialog
     fun alert(fm:FragmentManager,tag:String?)
     fun hide()
