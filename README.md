@@ -92,10 +92,10 @@ AndroidDialog.builder(R.layout.dialog_confirm){
                     floatArrayOf(24f,24f,24f,24f,24f,24f,24f,24f)
                 }
             }
-						//show dialog
-						dialog.alert(supportFragmentManager,"")
-						//dismiss dialog
-            dialog.hide()
+	//show dialog
+	dialog.alert(supportFragmentManager,"")
+	//dismiss dialog
+        dialog.hide()
 ```
 
 * 逻辑处理
