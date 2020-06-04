@@ -1,7 +1,7 @@
 package com.xhh.dialog
 
+import android.view.View
 import androidx.annotation.AnimRes
-import androidx.annotation.ColorRes
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.FragmentManager
 
@@ -13,7 +13,7 @@ interface AndroidDialog{
 
         fun builder(@LayoutRes layoutId: Int,dialogType:Int?=null,init: Builder.()->Unit)= Builder(layoutId,dialogType).apply(init).build()
     }
-
+    fun onHandle(handle:View.()->Unit):AndroidDialog
     fun alert(fm:FragmentManager,tag:String?)
     fun hide()
 

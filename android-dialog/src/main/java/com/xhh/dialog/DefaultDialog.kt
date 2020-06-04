@@ -15,6 +15,7 @@ internal class DefaultDialog(private val builder: AndroidDialog.Builder):AppComp
             return DefaultDialog(builder)
         }
     }
+    private var onHandle:((view:View)->Unit)?=null
     private lateinit var dialogWrapper: DialogWrapper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +27,16 @@ internal class DefaultDialog(private val builder: AndroidDialog.Builder):AppComp
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(builder.layoutId,container,false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        onHandle?.invoke(view)
+    }
+
+    override fun onHandle(handle: View.() -> Unit): AndroidDialog {
+        this.onHandle = handle
+        return this
     }
 
     override fun onStart() {

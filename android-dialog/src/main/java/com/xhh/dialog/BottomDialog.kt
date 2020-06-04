@@ -16,6 +16,7 @@ internal class BottomDialog(private val builder: AndroidDialog.Builder): BottomS
             return BottomDialog(builder)
         }
     }
+    private var onHandle:((view:View)->Unit)?=null
     private lateinit var dialogWrapper: DialogWrapper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +29,16 @@ internal class BottomDialog(private val builder: AndroidDialog.Builder): BottomS
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(builder.layoutId,container,false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        this.onHandle?.invoke(view)
+    }
+
+    override fun onHandle(handle: (view:View) -> Unit): AndroidDialog {
+        this.onHandle = handle
+        return this
     }
 
     override fun onStart() {
