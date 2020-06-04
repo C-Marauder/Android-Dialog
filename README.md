@@ -22,7 +22,7 @@ AndroidDialog.builder(R.layout.dialog_confirm){
             }.alert(supportFragmentManager,"")
 ```
 
-![image](https://github.com/xqy666666/Android-Dialog/blob/master/dialog.gif)
+![image](dialog.gif)
 
 * 底部弹窗
 
@@ -36,7 +36,7 @@ AndroidDialog.builder(R.layout.dialog_bottom,
             }.alert(supportFragmentManager,"")
 ```
 
-![bottom_dialog](https://github.com/xqy666666/Android-Dialog/blob/master/dialog_bottom.gif)
+![bottom_dialog](dialog_bottom.gif)
 
 * 全屏弹窗
 
@@ -46,7 +46,7 @@ AndroidDialog.builder(R.layout.dialog_bottom,
             }.alert(supportFragmentManager,"")
 ```
 
-![full_dialog](https://github.com/xqy666666/Android-Dialog/blob/master/dialog_full_screen.gif)
+![full_dialog](dialog_full_screen.gif)
 
 #### 3、参数说明
 
@@ -138,4 +138,4 @@ val dialog = AndroidDialog.builder(
             dialog.alert(supportFragmentManager, "")
 ```
 
-![interrupted](https://github.com/xqy666666/Android-Dialog/blob/master/interrupted.gif)
+![interrupted](interrupted.gif)
