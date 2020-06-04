@@ -2,6 +2,10 @@
 
 #### 1、依赖
 
+```kotlin
+    implementation 'com.xhh.dialog:dialog:1.0.0'
+```
+
 #### 2、使用
 
 ##### 2.1、样式介绍
