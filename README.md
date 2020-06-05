@@ -46,8 +46,9 @@ AndroidDialog.builder(R.layout.dialog_bottom,
 
 ```kotlin
  AndroidDialog.builder(R.layout.dialog_full_screen,
- 												AndroidDialog.FULL_SCREEN){
-            }.alert(supportFragmentManager,"")
+ 			AndroidDialog.FULL_SCREEN){
+			
+            		}.alert(supportFragmentManager,"")
 ```
 
 ![full_dialog](dialog_full_screen.gif)
