@@ -8,13 +8,13 @@
 
 #### 2、使用
 
-##### 2.1、样式介绍
+> Dialog的样式分为三种：
+>
+> * DEFAULT - 默认弹窗
+> * BOTTOM_SHEET - 底部弹窗
+> * FULL_SCREEN - 全屏弹窗
 
-* DEFAULT - 默认弹窗
-* BOTTOM_SHEET - 底部弹窗
-* FULL_SCREEN - 全屏弹窗
-
-##### 2.2、示例
+##### 2.1、简单示例
 
 * 默认弹窗
 
